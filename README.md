@@ -34,12 +34,25 @@ To compile and run the application locally, follow these steps:
    ```bash
    ./gradlew clean compileJava
    ```
-5. To run the application locally, either:
+5. Initiate DB
+   To start the required PostgreSQL database for the application, run:
+   ```bash
+   docker-compose up -d db
+   ```
+   The backend connects to the database on port 5432.
+   This command will start the database service in the background. You can check that the database is running with:
+   ```bash
+   docker ps
+   ```
+   If you need to initialize the database with a custom script (e.g., db/init_db.sh), execute it inside the PostgreSQL container after the service has started.
+6. To run the application locally, either:
    Execute the main method in the Application class from your IDE.
    Use the Spring Boot Gradle Plugin :
    ```bash
    ./gradlew bootRun
    ```
+   To check that application is well running, go to http://localhost:8080
+
    For production, package the application as WAR and use a tomcat server
 
 To run correctly the application with docker after you building it with tag workshop-organizer, run the following
@@ -53,6 +66,7 @@ docker compose up -d
 You can configure the application with these environment variables
 
 - SPRING_DATASOURCE_URL: JDBC URI for DB access (ex. jdbc:postgresql://db:5432/mydatabase)
+- Backend DB port: The backend connects to PostgreSQL on port 5432.
 - SPRING_DATASOURCE_USERNAME: Database user name used by the application
 - SPRING_DATASOURCE_PASSWORD: Database user password used by the application
 

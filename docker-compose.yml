@@ -15,3 +15,5 @@ services:
       POSTGRES_USER: workshops_user
       POSTGRES_PASSWORD: oc2024
       POSTGRES_DB: workshopsdb
+    ports:
+      - "5432:5432"
