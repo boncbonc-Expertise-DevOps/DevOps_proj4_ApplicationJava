@@ -1,0 +1,34 @@
+# ===== Build output =====
+build/
+out/
+target/
+
+# ===== Gradle cache =====
+.gradle/
+
+# ===== Node (si front présent) =====
+node_modules/
+
+# ===== IDE =====
+.vscode/
+.idea/
+*.iml
+
+# ===== Logs =====
+*.log
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# ===== Docker =====
+Dockerfile
+docker-compose.yml
+
+# ===== Tests reports =====
+reports/
+test-results/
+
+# ===== Temporary files =====
+*.tmp
+*.swp
