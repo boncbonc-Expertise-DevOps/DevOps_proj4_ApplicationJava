@@ -227,3 +227,6 @@ Mesures de sécurité appliquées dans la configuration Docker actuelle :
 
 Note importante : le fichier `ssl-cert-snakeoil.key` détecté par Trivy provient de l’image Debian de base de `postgres:13`. Il n’est pas utilisé comme secret applicatif du projet, mais doit être remplacé par des certificats dédiés en environnement de production TLS.
 
+## 8) tag fin exercice 1
+tag v1.0.0-ex1 | baseline stable pour containarization
+
