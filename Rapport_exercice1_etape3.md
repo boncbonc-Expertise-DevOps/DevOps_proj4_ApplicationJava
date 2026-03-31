@@ -216,4 +216,14 @@ Image postgres:13 (Debian 13.1) : 204 vulnérabilités (3 critiques, 24 hautes, 
 Binaire gosu : 19 vulnérabilités.
 1 secret détecté : /etc/ssl/private/ssl-cert-snakeoil.key.
 
+## 7) Sécurité ajoutée (mise à jour)
+
+Mesures de sécurité appliquées dans la configuration Docker actuelle :
+
+- L’application Java s’exécute en utilisateur non-root (`appuser`) dans l’image runtime, afin de limiter l’impact d’une compromission.
+- Les identifiants PostgreSQL ne sont plus codés en dur dans `docker-compose.yml` : ils sont externalisés dans un fichier `.env` chargé via `env_file`.
+- Le fichier `.env` est ignoré par Git (`.gitignore`) pour éviter la fuite de secrets dans le dépôt.
+- Le healthcheck PostgreSQL et `depends_on: condition: service_healthy` restent actifs pour un démarrage plus robuste et contrôlé.
+
+Note importante : le fichier `ssl-cert-snakeoil.key` détecté par Trivy provient de l’image Debian de base de `postgres:13`. Il n’est pas utilisé comme secret applicatif du projet, mais doit être remplacé par des certificats dédiés en environnement de production TLS.
 

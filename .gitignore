@@ -39,3 +39,8 @@ out/
 ### OpenAPI Generator ###
 .openapi-generator/
 java-generated/
+
+### Environment ###
+.env
+.env.*
+!.env.example
