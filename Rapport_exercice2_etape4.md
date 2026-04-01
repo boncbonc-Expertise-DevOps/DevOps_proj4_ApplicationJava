@@ -124,6 +124,8 @@ Dans GitLab UI :
 3. Le job `release_java` apparaît avec un bouton **Play** (manual job)
 4. Cliquer pour lancer le release
 
+Avant l'execution, il est possible de verifier la syntaxe du pipeline avec l'outil integre GitLab **Validate your GitLab CI configuration** (CI Lint). Cet ecran permet de valider le fichier `.gitlab-ci.yml` et de detecter rapidement les erreurs YAML ou de structure des jobs avant de lancer une pipeline reelle.
+
 ### Logs et résultat
 
 Le job `release_java` affiche :
@@ -164,6 +166,7 @@ Option future : retaguer les images avec la version sémantique après release (
 - Les commits auto-générés par semantic-release commencent par `chore(release):` pour éviter une loop.
 - Le script `.release-prepare.sh` doit être exécutable via `chmod +x`.
 - La branche `dev/test_ci` peut produire des prerelease (version rc) sans interferer avec les releases main.
+- Le validateur integre GitLab CI Lint est utile pour controler le `.gitlab-ci.yml` avant execution du pipeline.
 
 ## Différence avec Angular
 
