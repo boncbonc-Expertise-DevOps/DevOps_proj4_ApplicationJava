@@ -53,6 +53,13 @@ Le pipeline publie :
 
 Les fichiers XML sont générés par JUnit/Gradle puis agrégés par le script dans `test-results/`.
 
+### 6.b) Contenu des artefacts visibles dans GitLab
+Dans l'interface GitLab, les jobs de test affichent en general deux types d'artefacts :
+- `archive.zip` : archive des chemins declares dans `artifacts:paths` (par exemple `test-results/`, `build/reports/tests/test/`, `build/test-results/test/`).
+- `junit.xml.gz` : archive interne des rapports declares dans `artifacts:reports:junit`, utilisee par GitLab pour alimenter l'onglet Tests.
+
+Pour les jobs du stage `quality`, seul un artefact `archive.zip` est attendu, contenant le dossier `quality-reports/` (logs de lint).
+
 ## Validation locale réalisée
 Exécution validée localement dans ce repo avec :
 - `bash ./run-tests.sh`
