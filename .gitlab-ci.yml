@@ -159,8 +159,6 @@ build_image:
 release_java:
   stage: release
   image: node:22-bullseye
-  needs:
-    - build_image
   rules:
     - if: '$CI_COMMIT_BRANCH == "main" && $CI_COMMIT_MESSAGE =~ /^chore\(release\):/'
       when: never
@@ -171,7 +169,11 @@ release_java:
     GIT_DEPTH: "0"
     GIT_STRATEGY: fetch
   script:
-    - test -n "$GITLAB_TOKEN" || (echo "Missing required variable: GITLAB_TOKEN" && exit 1)
+    - |
+      if [ -z "$GITLAB_TOKEN" ]; then
+        echo "Missing required variable: GITLAB_TOKEN"
+        exit 1
+      fi
     - npm install --prefer-offline --no-audit
     - chmod +x ./.release-prepare.sh
     - git fetch --tags
