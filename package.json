@@ -1,0 +1,15 @@
+{
+  "name": "@oc-expert-devops-training/workshop-organizer",
+  "version": "0.2.4",
+  "private": true,
+  "description": "Minimal package.json for CI/CD release automation via semantic-release",
+  "devDependencies": {
+    "semantic-release": "^23.0.0",
+    "@semantic-release/commit-analyzer": "^13.0.0",
+    "@semantic-release/release-notes-generator": "^14.0.0",
+    "@semantic-release/changelog": "^6.0.0",
+    "@semantic-release/exec": "^6.0.0",
+    "@semantic-release/git": "^10.0.0",
+    "@semantic-release/gitlab": "^14.0.0"
+  }
+}
