@@ -44,3 +44,6 @@ java-generated/
 .env
 .env.*
 !.env.example
+
+### TEST ###
+test-results/
