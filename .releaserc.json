@@ -7,7 +7,8 @@
       "changelogFile": "CHANGELOG.md"
     }],
     ["@semantic-release/exec", {
-      "prepareCmd": "./.release-prepare.sh ${nextRelease.version}"
+      "prepareCmd": "./.release-prepare.sh ${nextRelease.version}",
+      "publishCmd": "chmod +x ./.release-docker-tag.sh && ./.release-docker-tag.sh ${nextRelease.version}"
     }],
     ["@semantic-release/git", {
       "assets": ["build.gradle", "CHANGELOG.md"],

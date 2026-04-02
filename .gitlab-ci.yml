@@ -157,6 +157,9 @@ build_image:
 release_java:
   stage: release
   image: node:22-bullseye
+  services:
+    - name: docker:27.5.1-dind
+      alias: docker
   rules:
     - if: '$CI_COMMIT_BRANCH == "main" && $CI_COMMIT_MESSAGE =~ /^chore\(release\):/'
       when: never
@@ -166,6 +169,10 @@ release_java:
   variables:
     GIT_DEPTH: "0"
     GIT_STRATEGY: fetch
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq --no-install-recommends docker.io
   script:
     - |
       if [ -z "$GITLAB_TOKEN" ]; then
