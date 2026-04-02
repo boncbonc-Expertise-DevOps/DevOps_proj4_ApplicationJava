@@ -14,15 +14,30 @@ spec:
     spec:
       containers:
       - name: workshop-organizer-db
-      # TODO: add postgres image
+        image: postgres:13
+        imagePullPolicy: IfNotPresent
         env:
         - name: POSTGRES_USER
           valueFrom:
             secretKeyRef:
               name: workshop-organizer-db-secret
               key: username
-       # TODO: add the postgres password variable
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: workshop-organizer-db-secret
+              key: password
         - name: POSTGRES_DB
-          value: workshop-organizer-database
+          valueFrom:
+            configMapKeyRef:
+              name: workshop-organizer-db-config
+              key: dbname
         ports:
         - containerPort: 5432
+        volumeMounts:
+        - name: postgres-data
+          mountPath: /var/lib/postgresql/data
+      volumes:
+      - name: postgres-data
+        persistentVolumeClaim:
+          claimName: workshop-organizer-db-pvc
