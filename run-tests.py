@@ -205,7 +205,7 @@ def run_project_tests(project_dir: Path) -> None:
     global EXECUTED_PROJECTS
     global FAILED
 
-    if (project_dir / "package.json").is_file():
+    if (project_dir / "angular.json").is_file():
         EXECUTED_PROJECTS += 1
         if not run_angular_tests(project_dir):
             FAILED = True

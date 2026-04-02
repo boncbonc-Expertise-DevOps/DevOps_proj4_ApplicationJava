@@ -150,7 +150,7 @@ run_java_tests() {
 run_project_tests() {
   local project_dir="$1"
 
-  if [[ -f "$project_dir/package.json" ]]; then
+  if [[ -f "$project_dir/angular.json" ]]; then
     EXECUTED_PROJECTS=$((EXECUTED_PROJECTS + 1))
     run_angular_tests "$project_dir"
     local status=$?

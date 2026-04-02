@@ -22,8 +22,7 @@ angular_tests:
   image: cypress/browsers:node-22.15.0-chrome-136.0.7103.92-1-ff-138.0.1-edge-136.0.3240.50-1
   rules:
     - exists:
-        - package.json
-        - karma.conf.js
+        - angular.json
   cache:
     key:
       files:
@@ -82,7 +81,6 @@ angular_lint:
   image: node:22-bullseye
   rules:
     - exists:
-        - package.json
         - angular.json
   cache:
     key:
