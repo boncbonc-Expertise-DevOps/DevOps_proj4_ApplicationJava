@@ -1,3 +1,10 @@
+# [2.1.0](https://gitlab.com/boncbonc-DevOps/proj4/DevOps_proj4_ApplicationJava/compare/v2.0.1...v2.1.0) (2026-04-02)
+
+
+### Features
+
+* **ci:** taguer les images Docker avec la version semantic release ([ecc0ad8](https://gitlab.com/boncbonc-DevOps/proj4/DevOps_proj4_ApplicationJava/commit/ecc0ad85e35de9f20b5b6b3f14983321d7d05c2e))
+
 ## [2.0.1](https://gitlab.com/boncbonc-DevOps/proj4/DevOps_proj4_ApplicationJava/compare/v2.0.0...v2.0.1) (2026-04-02)
 
 
